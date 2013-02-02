@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="http-equiv" content="Content-type: text/html; charset=UTF-8"/>)
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href="css/leaderboards.css" rel="stylesheet">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+  <script src="js/rails_boards.js" charset="utf-8"></script>
+</head>
+<body>
+
+<script type = "text/javascript">
+  function buildLeaderboard(lName, positions) {
+    if (positions.length == 0) $('.' + lName).html('<span class="label label-important">No Data</span>')
+
+    $.each(positions, function(i, position){
+      posDiv = createDivPosition(i + 1, position)
+      $('.' + lName).append(posDiv)
+    })
+  }
+
+  function createDivPosition(i, position) {
+      score        = position[0]
+      name         = position[1]
+      gravatarHash = position[2]
+
+      posDiv = $("<div></div>")
+        .addClass('row position_' + i)
+        .append("<span class='positionN'>"  + i  + "</span>")
+        .append("<span class='avatar'><img  class='avatar' src='http://www.gravatar.com/avatar/" + gravatarHash + "?s=25' class='avatar' /></span>")
+        .append("<span class='name'>"  + name  + "</span>")
+        .append("<span class='score'>" + score + "</span>")
+      return posDiv
+  }
+
+  $(document).ready(function() {
+
+    $(".updateTime").html(lastUpdated)
+    buildLeaderboard("all_time", all_time_leaderboard)
+    buildLeaderboard("monthly", monthly_leaderboard)
+    buildLeaderboard("weekly", weekly_leaderboard)
+    buildLeaderboard("daily", daily_leaderboard)
+
+  })
+</script>
+
+ <div class="container">
+  <div class="hero-unit">
+    <h1>Rails</h1>
+    <p>Top Committers</p>
+    <p class="text-info">Last updated: <span class='updateTime'>unknown</span></p>
+  </div>
+
+  <div class='row'>
+    <div class='leaderboardWrapper span3'>
+        <div class='lName'><span class="label label-info">All Time</span></div>
+        <div class="leaderboard all_time"> </div> 
+    </div>
+
+    <div class='leaderboardWrapper span3'>
+        <div class='lName'><span class="label label-info">Month</span></div>
+        <div class="leaderboard monthly"> </div> 
+    </div>
+
+    <div class='leaderboardWrapper span3'>
+        <div class='lName'><span class="label label-info">Week</span></div>
+        <div class="leaderboard weekly"> </div> 
+    </div>
+
+    <div class='leaderboardWrapper span3'>
+        <div class='lName'><span class="label label-info">Today</span></div>
+        <div class="leaderboard daily"> </div> 
+    </div>
+</div>
+
+</div>
+</body>
+
+</html>
