@@ -51,7 +51,7 @@
        } 
 
     }).fail(function(jqxhr, settings, exception) {
-       $(".leaderboardName").html("<div class='alert alert-error'>Leaderboard with this name was not found</div>")
+       $(".description").html("<div class='alert alert-error'>Leaderboard with this name was not found</div>")
     })
 
 
@@ -61,7 +61,7 @@
  <div class="container">
   <div class="hero-unit">
     <h1 class='leaderboardName'></h1>
-    <p>Top Committers</p>
+    <p class='description'>Top Committers</p>
     <p class="text-info">Last updated: <span class='updateTime'>unknown</span></p>
   </div>
 
