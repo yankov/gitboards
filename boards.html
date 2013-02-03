@@ -37,6 +37,8 @@
 
   $(document).ready(function() {
     var leaderboardName = window.location.hash;
+    if(leaderboardName == "" || leaderboardName == "#") window.location = "/gitboards";
+    
     leaderboardName = leaderboardName.replace('#', '')
 
     $.getScript("js/" + leaderboardName + "_boards.js", function(data, textStatus, jqxhr) {
