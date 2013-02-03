@@ -13,7 +13,7 @@
 
 <script type = "text/javascript">
   function buildLeaderboard(lName, positions) {
-    if (positions.length == 0) $('.' + lName).html('<span class="label label-important">No Data</span>')
+    if (positions.length == 0) $('.' + lName).html('<span class="label label-important">There were no commits today</span>')
 
     $.each(positions, function(i, position){
       posDiv = createDivPosition(i + 1, position)
@@ -38,12 +38,12 @@
   $(document).ready(function() {
     var leaderboardName = window.location.hash;
     if(leaderboardName == "" || leaderboardName == "#") window.location = "/gitboards";
-    
+
     leaderboardName = leaderboardName.replace('#', '')
 
-    $.getScript("js/" + leaderboardName + "_boards.js", function(data, textStatus, jqxhr) {
+    $.getScript("js/" + leaderboardName.toLowerCase(); + "_boards.js", function(data, textStatus, jqxhr) {
        if (jqxhr.status == 200) {
-          $(".leaderboardName").html(leaderboardName).css('textTransform', 'capitalize')
+          $(".leaderboardName").html(leaderboardName)
 
           $(".updateTime").html(lastUpdated)
           buildLeaderboard("all_time", all_time_leaderboard)
