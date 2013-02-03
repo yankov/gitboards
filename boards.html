@@ -13,7 +13,7 @@
 
 <script type = "text/javascript">
   function buildLeaderboard(lName, positions) {
-    if (positions.length == 0) $('.' + lName).html('<span class="label label-important">There were no commits today</span>')
+    if (positions.length == 0) $('.' + lName).html('<span class="label label-important">No commits</span>')
 
     $.each(positions, function(i, position){
       posDiv = createDivPosition(i + 1, position)
