@@ -41,15 +41,17 @@
 
     $.getScript("js/" + leaderboardName + "_boards.js", function(data, textStatus, jqxhr) {
        if (jqxhr.status == 200) {
-          $(".leaderboardName").html(leaderboardName)
+          $(".leaderboardName").html(leaderboardName).css('textTransform', 'capitalize')
+
           $(".updateTime").html(lastUpdated)
           buildLeaderboard("all_time", all_time_leaderboard)
           buildLeaderboard("monthly", monthly_leaderboard)
           buildLeaderboard("weekly", weekly_leaderboard)
           buildLeaderboard("daily", daily_leaderboard)
+       } else {
+          $(".leaderboardName").html("<div class='alert alert-error'>Leaderboard with this name was not found</div>")
        }
 
-       console.log(jqxhr.status); //200
     });
 
 
