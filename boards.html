@@ -41,7 +41,7 @@
 
     leaderboardName = leaderboardName.replace('#', '')
 
-    $.getScript("js/" + leaderboardName.toLowerCase(); + "_boards.js", function(data, textStatus, jqxhr) {
+    $.getScript("js/" + leaderboardName.toLowerCase() + "_boards.js", function(data, textStatus, jqxhr) {
        if (jqxhr.status == 200) {
           $(".leaderboardName").html(leaderboardName)
 
