@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+require 'date'
+require 'erb'
+require 'redis'
+require 'optparse'
+require 'uri'
+require 'digest'
+
+require_relative "lib/git_repo"
+require_relative "lib/js_generator"
+require_relative "lib/redis_populator"
+require_relative "lib/cli"
+
+options = CLI.parse_options(ARGV)
+
+@repo = GitRepo.new(options[:repo_path])
+
+leaderboards = { :all_time => @repo.leaderboard(:all_time),
+                 :monthly  => @repo.leaderboard(:monthly),
+                 :weekly   => @repo.leaderboard(:weekly),
+                 :daily    => @repo.leaderboard(:daily) }
+
+if options[:filename]
+  JSGenerator.save(options[:filename], leaderboards) 
+  
+  puts "Leaderboards have been saved to '#{options[:filename]}'"
+end
+
+if options[:redis_url]
+  redis = RedisPopulator.new(host: options[:redis_url].host, port: options[:redis_url].port )
+  redis.save(leaderboards)
+
+  puts "Leaderboards have been loaded into Redis. Check sorted sets: *_leaderboard"
+end
+

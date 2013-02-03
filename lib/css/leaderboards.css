@@ -1,0 +1,50 @@
+.span3 {width: 240px;}
+.leaderboard .row {
+  display: table-row;
+  border-spacing:10px 20px;
+  border-bottom: 1px solid #bbb;
+  vertical-align: middle;
+}
+.leaderboardWrapper .lName {text-align: center;}
+
+.lName {
+  margin-bottom: 10px;
+}
+
+.lName span {
+  font-size: 13px;
+}
+
+.leaderboard .row span {
+  padding: 2px;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.leaderboard {
+  display: table;
+  border-collapse: collapse;
+}
+
+.positionN {
+  font-size: 10px;
+}
+
+.name {
+  padding-left: 10px;
+  color: #4183c4;
+}
+
+.avatar {
+
+}
+
+.avatar img {
+  border-radius: 3px;
+  border: 1px solid #bbb;
+}
+
+.score {
+  padding-left:6px;
+  color: #f17f49;
+}
