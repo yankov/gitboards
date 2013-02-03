@@ -48,11 +48,11 @@
           buildLeaderboard("monthly", monthly_leaderboard)
           buildLeaderboard("weekly", weekly_leaderboard)
           buildLeaderboard("daily", daily_leaderboard)
-       } else {
-          $(".leaderboardName").html("<div class='alert alert-error'>Leaderboard with this name was not found</div>")
-       }
+       } 
 
-    });
+    }).fail(function(jqxhr, settings, exception) {
+       $(".leaderboardName").html("<div class='alert alert-error'>Leaderboard with this name was not found</div>")
+    })
 
 
   })
