@@ -33,6 +33,7 @@
 .name {
   padding-left: 10px;
   color: #4183c4;
+  max-width: 140px;
 }
 
 .avatar {
