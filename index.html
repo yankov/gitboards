@@ -9,91 +9,25 @@
 <body>
 
 <script type = "text/javascript">
+  $(document).ready(function() {
+    repos = ["Backbone", "Clojure", "Django", "Git", "JQuery", "Linux", 
+             "Metasploit", "Mongo", "NodeJS", "Perl", "Ruby", "Rails", "Redis"];
+
+    $.each(repos, function(i, repo){
+      link = "<div class='row'><span class='span3'>" + 
+                "<a href='/gitboards/boards.html#" + repo + "'>" + repo + "</a>" + 
+             "</span></div>"
+
+      $('.container').append(link)
+    })
+
+  })
 </script>
 
  <div class="container">
   <div class="hero-unit">
     <p>Git Leaderboards</p>
   </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Backbone'>Backbone</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Clojure'>Clojure</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Django'>Django</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Git'>Git</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#JQuery'>JQuery</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Linux'>Linux</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Metasploit'>Metasploit</a>
-    </span>
-  </div>
-  
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Mongo'>Mongodb</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#NodeJS'>NodeJS</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Perl'>Perl</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Ruby'>Ruby</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Rails'>Rails</a>
-    </span>
-  </div>
-
-  <div class='row'>
-    <span class='span3'>
-      <a href='/gitboards/boards.html#Redis'>Redis</a>
-    </span>
-  </div>
-
  </div>
 
 </div>
